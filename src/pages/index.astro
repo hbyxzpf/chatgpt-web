@@ -9,7 +9,7 @@ import 'katex/dist/katex.min.css'
 import 'highlight.js/styles/atom-one-dark.css'
 ---
 
-<Layout title="ChatGPT Web">
+<Layout title="ChatGPT API Demo">
   <main >
     <Header />
     <Generator client:load />
@@ -31,10 +31,8 @@ async function checkCurrentAuth() {
     }),
   })
   const responseJson = await response.json()
-  if (responseJson.code !== 0) {
+  if (responseJson.code !== 0)
     window.location.href = '/password'
-  }
 }
 checkCurrentAuth()
 </script>
-
