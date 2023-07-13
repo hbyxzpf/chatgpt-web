@@ -42,7 +42,7 @@ export const post: APIRoute = async(context) => {
   if (httpsProxy)
     initOptions.dispatcher = new ProxyAgent(httpsProxy)
   // #vercel-end
-
+  initOptions.headers["x-auth-token"] = pass
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
   const response = await fetch(`${baseUrl}/v1/chat/completions`, initOptions).catch((err: Error) => {
